@@ -17,4 +17,7 @@ public class Lotto {
         return this.numbers.toString();
     }
 
+    public boolean isContain(int bonusNumber){
+        return this.numbers.contains(bonusNumber);
+    }
 }
