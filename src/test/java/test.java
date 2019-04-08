@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 
 public class test {
     @Test
-    public void 사용자_로또_금액_입력_유효성_확인(){      // isMoneyValid 메소드 private로 변경 위해서 주석으로 변경
+    public void 사용자_로또_금액_입력_유효성_확인(){      // isMoneyValid 메소드 private로 변경 위해서 주석으로 변경 -> 클래스 구조 변경하면서 재확인불가
 //        User user=new User();
 //        assertThat(user.isMoneyValid("12345"),is(false));
 //        assertThat(user.isMoneyValid(" 1000"),is(false));
@@ -45,5 +45,9 @@ public class test {
         assertThat(AppView.isWinningLottoValid(check[8]),is(false));
         assertThat(AppView.isWinningLottoValid(check[9]),is(true));
         assertThat(AppView.isWinningLottoValid(check[10]),is(false));
+    }
+
+    public void 보너스_번호_입력_유효성_확인(){
+
     }
 }
