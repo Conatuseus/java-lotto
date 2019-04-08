@@ -1,7 +1,6 @@
 package com.conatuseus.lotto;
 
 import com.conatuseus.lotto.appController.AppController;
-
 import java.io.IOException;
 
 public class Main {

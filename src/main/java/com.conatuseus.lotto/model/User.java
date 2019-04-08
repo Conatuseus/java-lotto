@@ -26,7 +26,7 @@ public class User {
         return money;
     }
 
-    private void setMoney(int money) {
+    public void setMoney(int money) {
         this.money = money;
         this.setNumberOfLotto(money / 1000);
     }
@@ -39,9 +39,9 @@ public class User {
         this.numberOfLotto = numberOfLotto;
     }
 
-    public void printLottoList(){
-        for(Lotto lotto: this.getLottoList()){
-            System.out.println(lotto.toString());
+    public void makeLottoList() {
+        for (int i = 0; i < this.getNumberOfLotto(); i++) {
+            this.getLottoList().add(new Lotto(MakeRandom.makeRandomNumberList()));
         }
     }
 

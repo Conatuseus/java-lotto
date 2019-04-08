@@ -1,12 +1,11 @@
 package com.conatuseus.lotto.appView;
 
 import com.conatuseus.lotto.model.Lotto;
-import com.conatuseus.lotto.model.MakeRandom;
-import com.conatuseus.lotto.model.User;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class AppView {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,26 +26,27 @@ public class AppView {
     }
 
     public static int inputMoney() throws IOException {
-        String input;
+        String scannedMoney;
         do {
-            System.out.println("구입금액을 입력해 주세요.(0이상 1000원 단위)");
-            input = br.readLine();
-        } while (!isMoneyValid(input));
+            outputLine("구입금액을 입력해 주세요.(0이상 1000원 단위)");
+            scannedMoney = br.readLine();
+        } while (!isMoneyValid(scannedMoney));
 
-        return Integer.parseInt(input);
+        return Integer.parseInt(scannedMoney);
     }
 
-    private static boolean isMoneyValid(String input) {
-        if (!input.matches(MONEY_REGEX)) {
+    private static boolean isMoneyValid(String scannedMoney) {
+        if (!scannedMoney.matches(MONEY_REGEX)) {
             return false;
         }
-        int tInputMoney = Integer.parseInt(input);
+        int tInputMoney = Integer.parseInt(scannedMoney);
         return (tInputMoney % 1000) == 0;
     }
 
-//    public static void makeLottoList() {
-//        for (int i = 0; i < User.getNumberOfLotto(); i++) {
-//            this.getLottoList().add(new Lotto(MakeRandom.makeRandomNumberList()));
-//        }
-//    }
+    public static void printLottoList(List<Lotto> lottoList) {
+        for (Lotto lotto : lottoList) {
+            System.out.println(lotto.toString());
+        }
+    }
+
 }
