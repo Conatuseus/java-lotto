@@ -10,15 +10,8 @@ import java.util.Random;
 public class Lotto {
     private final List<Integer> numbers;
 
-
     public Lotto(List<Integer> numbers) {
         this.numbers = numbers;
-    }
-
-    public List<Integer> makeLotto(){
-
-
-        return new LinkedList<>();
     }
 
 

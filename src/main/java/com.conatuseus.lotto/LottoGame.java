@@ -3,10 +3,10 @@ package com.conatuseus.lotto;
 import java.io.IOException;
 
 public class LottoGame {
-    private User user=new User();
+    private User user;
 
     public LottoGame(){
-
+        this.user=new User();
     }
 
     public void run() throws IOException {
