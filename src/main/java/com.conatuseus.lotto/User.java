@@ -13,6 +13,7 @@ public class User {
     private static final String MONEY_REGEX = "[0-9]+";
     private List<Lotto> lottoList = new LinkedList<>();
     private int money;
+    private int numberOfLotto;
 
     public int getMoney() {
         return money;
@@ -20,6 +21,15 @@ public class User {
 
     private void setMoney(int money) {
         this.money = money;
+        this.setNumberOfLotto(money/1000);
+    }
+
+    public int getNumberOfLotto() {
+        return numberOfLotto;
+    }
+
+    private void setNumberOfLotto(int numberOfLotto) {
+        this.numberOfLotto = numberOfLotto;
     }
 
     public void inputMoney() throws IOException {
