@@ -19,7 +19,7 @@ public class AppController {
         user.setMoney(AppView.inputMoney());
         user.makeLottoList();
         AppView.printLottoList(user.getLottoList());
-
+        AppView.inputWinningLotto();
         AppView.outputLine("<< Lotto 게임을 종료합니다.");
     }
 
