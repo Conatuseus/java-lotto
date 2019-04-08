@@ -1,5 +1,9 @@
 import com.conatuseus.lotto.appView.AppView;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -22,18 +26,18 @@ public class test {
     @Test
     public void 지난주_당첨번호_유효성_확인(){
         String[][] check={
-                {"0","1","2","3","4","5"},           // 0 : false
-                {" ","2","3","4","3"},              // 1 :false;
-                {"","","","","",""},                // 2: false         --> 오류났다 체크
-                {"1","2","3","4","5"},              // 3: false
-                {"1","2","3","4","5","6"},          // 4 : true
-                {"1","1","1","1","1","1"},          // 5 : false
-                {"40","41","42","43","44","46"},    // 6 : false
-                {"100","1","2","3","4","5"},        // 7 : false
-                {"a","3","2","1","5","6"},          // 8 : false;       // 오류남
-                {"40","12","2","3","5","4"},        // 9 : true
-                {"1","2"}                           // 10 : false
-         };
+            {"0","1","2","3","4","5"},           // 0 : false
+            {" ","2","3","4","3"},              // 1 :false;
+            {"","","","","",""},                // 2: false         --> 오류났다 체크
+            {"1","2","3","4","5"},              // 3: false
+            {"1","2","3","4","5","6"},          // 4 : true
+            {"1","1","1","1","1","1"},          // 5 : false
+            {"40","41","42","43","44","46"},    // 6 : false
+            {"100","1","2","3","4","5"},        // 7 : false
+            {"a","3","2","1","5","6"},          // 8 : false;       // 오류남
+            {"40","12","2","3","5","4"},        // 9 : true
+            {"1","2"}                           // 10 : false
+        };
         assertThat(AppView.isWinningLottoValid(check[0]),is(false));
         assertThat(AppView.isWinningLottoValid(check[1]),is(false));
         assertThat(AppView.isWinningLottoValid(check[2]),is(false));
