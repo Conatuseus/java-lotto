@@ -1,10 +1,12 @@
 package com.conatuseus.lotto;
 
+import com.conatuseus.lotto.appController.AppController;
+
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        LottoGame lottoGame=new LottoGame();
-        lottoGame.run();
+        AppController appController =new AppController();
+        appController.run();
     }
 }

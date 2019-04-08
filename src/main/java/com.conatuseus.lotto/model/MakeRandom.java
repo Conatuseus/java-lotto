@@ -1,4 +1,4 @@
-package com.conatuseus.lotto;
+package com.conatuseus.lotto.model;
 
 
 import java.util.*;
@@ -8,19 +8,16 @@ public class MakeRandom {
     private static final int MIN_LOTTO_VALUE = 1;
 
     public static List<Integer> makeRandomNumberList() {
-        List<Integer> list = new LinkedList<>();
-        Set<Integer> set = new HashSet<>();
-
-        while (list.size() != 6) {
+        Set<Integer> set=new TreeSet<>();
+        while (set.size() != 6) {
             int madeRandomNumber = (int) ((Math.random() * MAX_LOTTO_VALUE) + MIN_LOTTO_VALUE);
-            addRandomNumber(list, set, madeRandomNumber);
+            addRandomNumber(set, madeRandomNumber);
         }
-        return list;
+        return new LinkedList<>(set);
     }
 
-    private static void addRandomNumber(List<Integer> list, Set<Integer> set, int randomNumber) {
+    private static void addRandomNumber( Set<Integer> set, int randomNumber) {
         if (!set.contains(randomNumber)) {
-            list.add(randomNumber);
             set.add(randomNumber);
         }
     }

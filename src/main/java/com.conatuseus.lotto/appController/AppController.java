@@ -1,11 +1,13 @@
-package com.conatuseus.lotto;
+package com.conatuseus.lotto.appController;
+
+import com.conatuseus.lotto.model.User;
 
 import java.io.IOException;
 
-public class LottoGame {
+public class AppController {
     private User user;
 
-    public LottoGame(){
+    public AppController(){
         this.user=new User();
     }
 
@@ -13,10 +15,7 @@ public class LottoGame {
         System.out.println(">> Lotto 게임을 시작합니다.");
         user.inputMoney();
         user.makeLottoList();
-
-        for(Lotto lotto:user.getLottoList()){
-            System.out.println(lotto.toString());
-        }
+        user.printLottoList();
 
         System.out.println("<< Lotto 게임을 종료합니다.");
     }
