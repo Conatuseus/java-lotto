@@ -15,8 +15,16 @@ public class User {
     private int money;
     private int numberOfLotto;
 
-    public User(){
-        this.lottoList=new LinkedList<>();
+    public User() {
+        this.setLottoList(new LinkedList<>());
+    }
+
+    public List<Lotto> getLottoList() {
+        return lottoList;
+    }
+
+    private void setLottoList(List<Lotto> lottoList) {
+        this.lottoList = lottoList;
     }
 
     public int getMoney() {
@@ -25,7 +33,7 @@ public class User {
 
     private void setMoney(int money) {
         this.money = money;
-        this.setNumberOfLotto(money/1000);
+        this.setNumberOfLotto(money / 1000);
     }
 
     public int getNumberOfLotto() {
@@ -40,18 +48,25 @@ public class User {
         String input;
         do {
             System.out.println("구입금액을 입력해 주세요.(0이상 1000원 단위)");
-            input=br.readLine();
-        }while (!this.isMoneyValid(input));
+            input = br.readLine();
+        } while (!this.isMoneyValid(input));
 
         this.setMoney(Integer.parseInt(input));
     }
 
     private boolean isMoneyValid(String input) {
-        if(!input.matches(MONEY_REGEX)){
+        if (!input.matches(MONEY_REGEX)) {
             return false;
         }
-        int tInputMoney=Integer.parseInt(input);
+        int tInputMoney = Integer.parseInt(input);
         return (tInputMoney % 1000) == 0;
     }
+
+    public void makeLottoList() {
+        for (int i = 0; i < this.getNumberOfLotto(); i++) {
+            this.getLottoList().add(new Lotto(MakeRandom.makeRandomNumberList()));
+        }
+    }
+
 
 }

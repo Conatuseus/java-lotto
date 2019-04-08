@@ -14,5 +14,13 @@ public class Lotto {
         this.numbers = numbers;
     }
 
+    @Override
+    public String toString(){
+        StringBuilder ret= new StringBuilder();
+        for( int n:this.numbers){
+            ret.append(n);
+        }
+        return ret.toString();
+    }
 
 }
