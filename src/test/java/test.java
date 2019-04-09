@@ -51,7 +51,18 @@ public class test {
         assertThat(AppView.isWinningLottoValid(check[10]),is(false));
     }
 
+    @Test
     public void 보너스_번호_입력_유효성_확인(){
+
+        assertThat(AppView.isWinningBonusValid("1"),is(true));
+        assertThat(AppView.isWinningBonusValid("2"),is(true));
+        assertThat(AppView.isWinningBonusValid("46"),is(false));
+        assertThat(AppView.isWinningBonusValid(""),is(false));
+        assertThat(AppView.isWinningBonusValid("-1"),is(false));
+        assertThat(AppView.isWinningBonusValid("50"),is(false));
+        assertThat(AppView.isWinningBonusValid("~~!!"),is(false));
+        assertThat(AppView.isWinningBonusValid("A"),is(false));
+        assertThat(AppView.isWinningBonusValid("*"),is(false));
 
     }
 }
