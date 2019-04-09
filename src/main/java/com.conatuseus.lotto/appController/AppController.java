@@ -27,7 +27,7 @@ public class AppController {
         this.mapInit();
     }
 
-    private void mapInit(){
+    private void mapInit() {
         this.setCountOfRankResult(new HashMap<>());
         this.getCountOfRankResult().put(Rank.FIRST, 0);
         this.getCountOfRankResult().put(Rank.SECOND, 0);
@@ -66,14 +66,14 @@ public class AppController {
     }
 
     private void makeWinningLotto() throws IOException {
-        List<Integer> scannedWinningLotto=AppView.inputWinningLotto();
-        Lotto lotto = new Lotto(scannedWinningLotto);
+        List<Integer> scannedWinningLotto = AppView.inputWinningLotto();
+        Lotto scannedLotto = new Lotto(scannedWinningLotto);
         int scannedBonusNumber;
         do {
             scannedBonusNumber = AppView.inputWinningBonusNumber();
         }
-        while (scannedBonusNumber == -1 || lotto.isContain(scannedBonusNumber));
-        this.setWinningLotto(new WinningLotto(lotto, scannedBonusNumber));
+        while (scannedBonusNumber == -1 || scannedLotto.isContain(scannedBonusNumber));
+        this.setWinningLotto(new WinningLotto(scannedLotto, scannedBonusNumber));
     }
 
     private void countingRank() {
