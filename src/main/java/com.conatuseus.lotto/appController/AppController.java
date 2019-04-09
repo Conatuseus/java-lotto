@@ -58,6 +58,7 @@ public class AppController {
         user.setMoney(AppView.inputMoney());
         user.makeLottoList();
         AppView.printLottoList(user.getLottoList());
+
         this.makeWinningLotto();
 
         this.countingRank();
@@ -71,8 +72,7 @@ public class AppController {
         int scannedBonusNumber;
         do {
             scannedBonusNumber = AppView.inputWinningBonusNumber();
-        }
-        while (scannedBonusNumber == -1 || scannedLotto.isContain(scannedBonusNumber));
+        } while (scannedBonusNumber == -1 || scannedLotto.isContain(scannedBonusNumber));
         this.setWinningLotto(new WinningLotto(scannedLotto, scannedBonusNumber));
     }
 
@@ -95,6 +95,10 @@ public class AppController {
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
             rateOfReturn += (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
         }
-        AppView.outputLine(String.format("%.3f", (double) rateOfReturn / user.getMoney()));
+        if (user.getMoney() == 0) {
+            AppView.outputLine("로또를 구매하지 않았습니다.");
+        } else {
+            AppView.outputLine(String.format("%.3f", (double) rateOfReturn / user.getMoney()));
+        }
     }
 }
