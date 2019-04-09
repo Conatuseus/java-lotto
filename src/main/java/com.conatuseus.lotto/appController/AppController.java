@@ -83,7 +83,7 @@ public class AppController {
 
     private void printResult() {
         long rateOfReturn = 0L;
-        AppView.printResultOfLotto();
+        AppView.printPrefixResultOfLotto();
         for (int i = MIN_VALUE_RANK_INDEX; i >= MAX_VALUE_RANK_INDEX; i--) {
             Rank rank = Rank.values()[i];
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
