@@ -27,6 +27,4 @@ public class WinningLotto {
     private int isMatches(Lotto userLotto, int index) {
         return this.lotto.isContain(userLotto.getNumbers().get(index)) ? 1 : 0;
     }
-
-
 }
