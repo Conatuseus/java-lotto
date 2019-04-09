@@ -1,5 +1,7 @@
 package com.conatuseus.lotto.model;
 
+import com.conatuseus.lotto.appController.AppController;
+
 /**
  * 당첨 번호를 담당하는 객체
  */
@@ -14,8 +16,8 @@ public class WinningLotto {
 
     public Rank match(Lotto userLotto) {
         int countOfMatch = 0;
-        for(int i=0;i<6;i++){
-            countOfMatch+=this.isMatches(userLotto,i);
+        for (int i = 0; i < AppController.LOTTO_LENGTH; i++) {
+            countOfMatch += this.isMatches(userLotto, i);
         }
 
         return userLotto.isContain(bonusNo) ? Rank.valueOf(countOfMatch, true)
