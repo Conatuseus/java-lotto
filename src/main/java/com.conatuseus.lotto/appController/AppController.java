@@ -23,6 +23,10 @@ public class AppController {
 
     public AppController() {
         this.user = new User();
+        this.mapInit();
+    }
+
+    private void mapInit(){
         this.setCountOfRankResult(new HashMap<>());
         this.getCountOfRankResult().put(Rank.FIRST, 0);
         this.getCountOfRankResult().put(Rank.SECOND, 0);
@@ -36,7 +40,7 @@ public class AppController {
         this.winningLotto = winningLotto;
     }
 
-    public WinningLotto getWinningLotto() {
+    private WinningLotto getWinningLotto() {
         return this.winningLotto;
     }
 
@@ -44,7 +48,7 @@ public class AppController {
         this.countOfRankResult = newMap;
     }
 
-    public Map<Rank, Integer> getCountOfRankResult() {
+    private Map<Rank, Integer> getCountOfRankResult() {
         return countOfRankResult;
     }
 
