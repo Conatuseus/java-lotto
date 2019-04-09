@@ -91,5 +91,4 @@ public class AppController {
         }
         AppView.outputLine(String.format("%.3f", (double) rateOfReturn / user.getBuyMoney()));
     }
-
 }
