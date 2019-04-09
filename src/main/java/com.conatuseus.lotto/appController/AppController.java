@@ -8,6 +8,7 @@ import com.conatuseus.lotto.model.WinningLotto;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AppController {
@@ -54,7 +55,7 @@ public class AppController {
 
     public void run() throws IOException {
         AppView.outputLine(">> Lotto 게임을 시작합니다.");
-        user.setBuyMoney(AppView.inputMoney());
+        user.setMoney(AppView.inputMoney());
         user.makeLottoList();
         AppView.printLottoList(user.getLottoList());
         this.makeWinningLotto();
@@ -65,13 +66,14 @@ public class AppController {
     }
 
     private void makeWinningLotto() throws IOException {
-        Lotto lotto = new Lotto(AppView.inputWinningLotto());
-        int bonusNumber;
+        List<Integer> scannedWinningLotto=AppView.inputWinningLotto();
+        Lotto lotto = new Lotto(scannedWinningLotto);
+        int scannedBonusNumber;
         do {
-            bonusNumber = AppView.inputWinningBonusNumber();
+            scannedBonusNumber = AppView.inputWinningBonusNumber();
         }
-        while (bonusNumber == -1 || lotto.isContain(bonusNumber));
-        this.setWinningLotto(new WinningLotto(lotto, bonusNumber));
+        while (scannedBonusNumber == -1 || lotto.isContain(scannedBonusNumber));
+        this.setWinningLotto(new WinningLotto(lotto, scannedBonusNumber));
     }
 
     private void countingRank() {
@@ -93,6 +95,6 @@ public class AppController {
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
             rateOfReturn += (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
         }
-        AppView.outputLine(String.format("%.3f", (double) rateOfReturn / user.getBuyMoney()));
+        AppView.outputLine(String.format("%.3f", (double) rateOfReturn / user.getMoney()));
     }
 }
