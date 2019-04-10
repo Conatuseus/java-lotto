@@ -69,10 +69,12 @@ public class AppController {
     private void makeWinningLotto() throws IOException {
         List<Integer> scannedWinningLotto = AppView.inputWinningLotto();
         Lotto scannedLotto = new Lotto(scannedWinningLotto);
+
         int scannedBonusNumber;
         do {
             scannedBonusNumber = AppView.inputWinningBonusNumber();
         } while (scannedBonusNumber == -1 || scannedLotto.isContain(scannedBonusNumber));
+
         this.setWinningLotto(new WinningLotto(scannedLotto, scannedBonusNumber));
     }
 
@@ -90,11 +92,13 @@ public class AppController {
     private void printResult() {
         long rateOfReturn = 0L;
         AppView.printPrefixResultOfLotto();
+
         for (int i = MIN_VALUE_RANK_INDEX; i >= MAX_VALUE_RANK_INDEX; i--) {
             Rank rank = Rank.values()[i];
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
             rateOfReturn += (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
         }
+
         if (user.getMoney() == 0) {
             AppView.outputLine("로또를 구매하지 않았습니다.");
         } else {
