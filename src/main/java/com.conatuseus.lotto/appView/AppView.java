@@ -60,30 +60,38 @@ public class AppView {
             scannedNumbers = br.readLine().split(",");
         } while (!isWinningLottoValid(scannedNumbers));
 
-        return StringArrayToIntList(scannedNumbers);
+        return convertStringArrayToIntList(scannedNumbers);     // 유효한 입력이라면 List로 변경 후 반환
     }
 
+    /**
+     *  입력 받은 숫자들이 유효한지 확인하는 메소드
+     * @param scannedNumbers 입력받은 지난주 당첨번호
+     * @return 올바른 입력이면 true, 아니면 false
+     */
     public static boolean isWinningLottoValid(String[] scannedNumbers) {
         if (scannedNumbers.length != AppController.LOTTO_LENGTH) {
-            return false;
+            return false;                                               // 배열의 크기가 6보다 작으면
         }
 
         int i = 0;
         Set<Integer> set = new HashSet<>();
-        while (i < AppController.LOTTO_LENGTH && scannedNumbers[i].length() >= 1
-                && scannedNumbers[i].matches(NUMBER_REGEX) && isWinningNumberValid(Integer.parseInt(scannedNumbers[i]))) {
+        while (i < AppController.LOTTO_LENGTH
+                && scannedNumbers[i].length() >= 1                                              // String의 길이가 0보다 크면
+                && scannedNumbers[i].matches(NUMBER_REGEX)                                      // String이 숫자아면
+                && isWinningNumberValid(Integer.parseInt(scannedNumbers[i]))) {                 // 숫자가 1~45 사이의 수 이면
             set.add(Integer.parseInt(scannedNumbers[i]));
             i++;
         }
 
-        return set.size() == AppController.LOTTO_LENGTH;
+        return set.size() == AppController.LOTTO_LENGTH;                                        // set의 크기가 6인지아닌지 반환.
     }
 
     public static boolean isWinningNumberValid(int scannedNumber) {
         return scannedNumber >= AppController.MIN_LOTTO_VALUE && scannedNumber <= AppController.MAX_LOTTO_VALUE;
     }
 
-    public static List<Integer> StringArrayToIntList(String[] scannedNumbers) {
+    /* 입력받은 String Array를  ArrayList<Integer>로 반환하는 메소드 */
+    public static List<Integer> convertStringArrayToIntList(String[] scannedNumbers) {
         Set<Integer> set = new TreeSet<>();
         for (String number : scannedNumbers) {
             set.add(Integer.parseInt(number));
@@ -97,12 +105,13 @@ public class AppView {
         return isWinningBonusValid(scannedNumber) ? Integer.parseInt(scannedNumber) : FAIL_INPUT;
     }
 
+    /* 보너스볼이 유효한 수인지 확인하는 메소드*/
     public static boolean isWinningBonusValid(String scannedNumber) {
         if (scannedNumber.length() == 0 || !scannedNumber.matches(NUMBER_REGEX)) {
-            return false;
+            return false;                                                               // 길이가0 이거나, 숫자가 아니면 return false
         }
         int number = Integer.parseInt(scannedNumber);
-        return (number >= AppController.MIN_LOTTO_VALUE) && (number <= AppController.MAX_LOTTO_VALUE);
+        return (number >= AppController.MIN_LOTTO_VALUE) && (number <= AppController.MAX_LOTTO_VALUE);      // 숫자가 1~45사이의 수인지 아닌지
     }
 
     public static void printPrefixResultOfLotto() {
