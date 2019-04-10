@@ -42,7 +42,7 @@ public class AppView {
             return false;
         }
         int tInputMoney = Integer.parseInt(scannedMoney);
-        return (tInputMoney % 1000) == 0;
+        return (tInputMoney % AppController.LOTTO_COST) == 0;
     }
 
     public static void printLottoList(List<Lotto> lottoList) {

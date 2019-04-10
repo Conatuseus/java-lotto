@@ -15,6 +15,7 @@ public class AppController {
     public static final int LOTTO_LENGTH = 6;
     public static final int MAX_LOTTO_VALUE = 45;
     public static final int MIN_LOTTO_VALUE = 1;
+    public static final int LOTTO_COST = 1000;
     private static final int MIN_VALUE_RANK_INDEX = 4;
     private static final int MAX_VALUE_RANK_INDEX = 0;
 
@@ -61,7 +62,6 @@ public class AppController {
 
         this.makeWinningLotto();
 
-        System.out.println(this.user.toString());
         this.countingRank();
         this.printResult();
         AppView.outputLine("<< Lotto 게임을 종료합니다.");
