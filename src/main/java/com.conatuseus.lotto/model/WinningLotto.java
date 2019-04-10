@@ -15,6 +15,8 @@ import java.util.List;
 
 /**
  * 당첨 번호를 담당하는 객체
+ * author 사명기
+ * @version 3.00    2019년 4월 10일
  */
 public class WinningLotto {
     private final Lotto lotto;

@@ -13,6 +13,10 @@ import java.util.List;
 
 /**
  * 로또 한장을 의미하는 객체
+ *
+ *
+ * author 사명기
+ * @version 3.00    2019년 4월 10일
  */
 public class Lotto {
     private final List<Integer> numbers;

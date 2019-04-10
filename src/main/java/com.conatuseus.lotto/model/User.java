@@ -16,6 +16,9 @@ import java.util.List;
 
 /**
  * 사용자의 정보를 담을 클래스
+ *
+ * @author 사명기
+ * @version 3.00    2019년 4월 10일
  */
 public class User {
     private List<Lotto> lottoList;

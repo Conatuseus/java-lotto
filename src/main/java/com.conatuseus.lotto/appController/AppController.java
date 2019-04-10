@@ -122,10 +122,12 @@ public class AppController {
         }
     }
 
+    /* Map에서 해당 Rank의 당첨금과 value(개수)의 곱을 계산하는 메소드 */
     public long getThisRankMoney(Rank rank){
         return (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
     }
 
+    /* 수익률 계산하는 메소드 */
     public double getReturnOfRate(Long sumOfPrizeMoney, int userMoney) {
         return (double) sumOfPrizeMoney / userMoney;
     }

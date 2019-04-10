@@ -15,6 +15,8 @@ import java.util.*;
 
 /**
  * 사용자의 로또를 생성하기 위한 클래스
+ * author 사명기
+ * @version 3.00    2019년 4월 10일
  */
 public class MakeLotto {
 

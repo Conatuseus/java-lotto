@@ -10,6 +10,8 @@ package com.conatuseus.lotto.model;
 
 /**
  * 로또 등수를 의미하는 enum
+ * author 사명기
+ * @version 3.00    2019년 4월 10일
  */
 public enum Rank {
     FIRST(6, 2_000_000_000), // 1등

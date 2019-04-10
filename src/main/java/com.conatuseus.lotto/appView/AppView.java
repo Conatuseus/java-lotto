@@ -19,6 +19,8 @@ import java.util.*;
 
 /**
  * I/O를 담당하는 클래스
+ * author 사명기
+ * @version 3.00    2019년 4월 10일
  */
 public class AppView {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
