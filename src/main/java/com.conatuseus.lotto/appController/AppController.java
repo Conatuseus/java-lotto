@@ -90,20 +90,24 @@ public class AppController {
         this.getCountOfRankResult().put(rank, this.getCountOfRankResult().get(rank) + 1);
     }
 
-    private void printResult() {
-        long rateOfReturn = 0L;
+    public void printResult() {
+        long sumOfPrizeMoney = 0L;
         AppView.printPrefixResultOfLotto();
 
         for (int i = MIN_VALUE_RANK_INDEX; i >= MAX_VALUE_RANK_INDEX; i--) {
             Rank rank = Rank.values()[i];
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
-            rateOfReturn += (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
+            sumOfPrizeMoney += (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
         }
 
-        if (user.getMoney() == 0) {
+        if (user.getMoney() <= 0) {
             AppView.outputLine("로또를 구매하지 않았습니다.");
         } else {
-            AppView.outputLine(String.format("%.3f", (double) rateOfReturn / user.getMoney()));
+            AppView.outputLine(String.format("%.3f", this.getReturnOfRate(sumOfPrizeMoney, user.getMoney())));
         }
+    }
+
+    public double getReturnOfRate(Long sumOfPrizeMoney, int userMoney) {
+        return (double) sumOfPrizeMoney / userMoney;
     }
 }
