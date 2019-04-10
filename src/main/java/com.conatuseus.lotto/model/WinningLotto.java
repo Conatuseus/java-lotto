@@ -35,6 +35,7 @@ public class WinningLotto {
                 : Rank.valueOf(countOfMatch, false);
     }
 
+    /* 당첨 로또에 userLotto가 있으면 1, 없으면 0반환  */
     private int isMatches(Lotto userLotto, int index) {
         return this.lotto.isContain(userLotto.getNumbers().get(index)) ? 1 : 0;
     }

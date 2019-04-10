@@ -20,6 +20,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Lotto game 로직을 담당하는 클래스
+ */
 public class AppController {
     public static final int LOTTO_LENGTH = 6;
     public static final int MAX_LOTTO_VALUE = 45;
@@ -92,8 +95,8 @@ public class AppController {
     }
 
     private void countingRank() {
-        for (Lotto userLotto : this.user.getLottoList()) {
-            this.addCountOfRank(userLotto);
+        for (Lotto userLotto : this.user.getLottoList()) {              // 사용자의 모든 로또를 돌며
+            this.addCountOfRank(userLotto);                             // 해당 Rank의 value에+1해서 저장
         }
     }
 
@@ -109,7 +112,7 @@ public class AppController {
         for (int i = MIN_VALUE_RANK_INDEX; i >= MAX_VALUE_RANK_INDEX; i--) {
             Rank rank = Rank.values()[i];
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
-            sumOfPrizeMoney += (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
+            sumOfPrizeMoney += this.calculatePrizeMoney(rank);
         }
 
         if (user.getMoney() <= 0) {
@@ -117,6 +120,10 @@ public class AppController {
         } else {
             AppView.outputLine(String.format("%.3f", this.getReturnOfRate(sumOfPrizeMoney, user.getMoney())));
         }
+    }
+
+    public long calculatePrizeMoney(Rank rank){
+        return (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
     }
 
     public double getReturnOfRate(Long sumOfPrizeMoney, int userMoney) {

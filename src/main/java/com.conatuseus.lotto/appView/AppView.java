@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+/**
+ * I/O를 담당하는 클래스
+ */
 public class AppView {
     private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static final String NUMBER_REGEX = "[0-9]+";

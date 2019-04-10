@@ -14,6 +14,9 @@ import com.conatuseus.lotto.appController.AppController;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 사용자의 정보를 담을 클래스
+ */
 public class User {
     private List<Lotto> lottoList;
     private int money;
