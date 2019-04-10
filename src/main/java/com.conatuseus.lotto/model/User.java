@@ -44,4 +44,12 @@ public class User {
             this.getLottoList().add(new Lotto(MakeLotto.makeRandomNumberList()));
         }
     }
+
+    @Override
+    public String toString(){
+        StringBuilder sb=new StringBuilder();
+        sb.append("구입 금액 : ").append(this.getMoney()).append("\n");
+        sb.append("구입 목록").append("\n").append(this.getLottoList());
+        return sb.toString();
+    }
 }

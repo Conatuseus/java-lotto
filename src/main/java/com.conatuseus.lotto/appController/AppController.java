@@ -61,6 +61,7 @@ public class AppController {
 
         this.makeWinningLotto();
 
+        System.out.println(this.user.toString());
         this.countingRank();
         this.printResult();
         AppView.outputLine("<< Lotto 게임을 종료합니다.");
