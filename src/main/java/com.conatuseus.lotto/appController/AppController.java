@@ -74,7 +74,7 @@ public class AppController {
         int scannedBonusNumber;
         do {
             scannedBonusNumber = AppView.inputWinningBonusNumber();
-        } while (scannedBonusNumber == -1 || scannedLotto.isContain(scannedBonusNumber));
+        } while (scannedBonusNumber == AppView.FAIL_INPUT || scannedLotto.isContain(scannedBonusNumber));
 
         this.setWinningLotto(new WinningLotto(scannedLotto, scannedBonusNumber));
     }
