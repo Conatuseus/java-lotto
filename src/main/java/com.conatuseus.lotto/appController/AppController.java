@@ -112,7 +112,7 @@ public class AppController {
         for (int i = MIN_VALUE_RANK_INDEX; i >= MAX_VALUE_RANK_INDEX; i--) {
             Rank rank = Rank.values()[i];
             AppView.outputLine(rank.toString() + this.getCountOfRankResult().get(rank) + "개");
-            sumOfPrizeMoney += this.calculatePrizeMoney(rank);
+            sumOfPrizeMoney += this.getThisRankMoney(rank);
         }
 
         if (user.getMoney() <= 0) {
@@ -122,7 +122,7 @@ public class AppController {
         }
     }
 
-    public long calculatePrizeMoney(Rank rank){
+    public long getThisRankMoney(Rank rank){
         return (long) rank.getWinningMoney() * this.getCountOfRankResult().get(rank);
     }
 
