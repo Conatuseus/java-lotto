@@ -1,3 +1,12 @@
+/*
+ *  @(#)AppController.java       3.00    2019/04/10
+ *
+ *  Copyright   (c) 2019 Myungki Sa.
+ *  Computer Science Engineering, Java, Daejeon, Korea
+ *  All rights reserved.
+ *  conatuseus@gmail.com
+ */
+
 package com.conatuseus.lotto.appController;
 
 import com.conatuseus.lotto.appView.AppView;
@@ -28,6 +37,7 @@ public class AppController {
         this.mapInit();
     }
 
+    /* 당첨 금액 별 count할 Map 초기화  */
     private void mapInit() {
         this.setCountOfRankResult(new HashMap<>());
         this.getCountOfRankResult().put(Rank.FIRST, 0);
@@ -54,19 +64,21 @@ public class AppController {
         return countOfRankResult;
     }
 
+    /* 실행 로직 */
     public void run() throws IOException {
         AppView.outputLine(">> Lotto 게임을 시작합니다.");
-        user.setMoney(AppView.inputMoney());
-        user.makeLottoList();
-        AppView.printLottoList(user.getLottoList());
+        user.setMoney(AppView.inputMoney());                            // Money 입력받아서 저장
+        user.makeLottoList();                                           // user의 로또 List 생성
+        AppView.printLottoList(user.getLottoList());                    // 사용자의 로또 출력
 
-        this.makeWinningLotto();
+        this.makeWinningLotto();                                        // 지난주 당첨 로또 생성
 
-        this.countingRank();
+        this.countingRank();                                            // 당첨 별로 counting
         this.printResult();
         AppView.outputLine("<< Lotto 게임을 종료합니다.");
     }
 
+    /* 지난주 당첨번호 입력받아 생성하는 메소드 */
     private void makeWinningLotto() throws IOException {
         List<Integer> scannedWinningLotto = AppView.inputWinningLotto();
         Lotto scannedLotto = new Lotto(scannedWinningLotto);
@@ -74,7 +86,7 @@ public class AppController {
         int scannedBonusNumber;
         do {
             scannedBonusNumber = AppView.inputWinningBonusNumber();
-        } while (scannedBonusNumber == AppView.FAIL_INPUT || scannedLotto.isContain(scannedBonusNumber));
+        } while (scannedBonusNumber == AppView.FAIL_INPUT || scannedLotto.isContain(scannedBonusNumber));           // 잘못된 입력 또는 보너스번호가 일반 당처 번호에 중복되면 계속
 
         this.setWinningLotto(new WinningLotto(scannedLotto, scannedBonusNumber));
     }

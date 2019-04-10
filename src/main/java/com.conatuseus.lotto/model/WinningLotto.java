@@ -1,3 +1,12 @@
+/*
+ *  @(#)WinningLotto.java       3.00    2019/04/10
+ *
+ *  Copyright   (c) 2019 Myungki Sa.
+ *  Computer Science Engineering, Java, Daejeon, Korea
+ *  All rights reserved.
+ *  conatuseus@gmail.com
+ */
+
 package com.conatuseus.lotto.model;
 
 import com.conatuseus.lotto.appController.AppController;

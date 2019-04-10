@@ -1,11 +1,18 @@
-package com.conatuseus.lotto.model;
+/*
+ *  @(#)User.java       3.00    2019/04/10
+ *
+ *  Copyright   (c) 2019 Myungki Sa.
+ *  Computer Science Engineering, Java, Daejeon, Korea
+ *  All rights reserved.
+ *  conatuseus@gmail.com
+ */
 
+package com.conatuseus.lotto.model;
 
 import com.conatuseus.lotto.appController.AppController;
 
 import java.util.LinkedList;
 import java.util.List;
-
 
 public class User {
     private List<Lotto> lottoList;

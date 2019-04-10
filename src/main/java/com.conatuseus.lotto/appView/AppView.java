@@ -1,3 +1,12 @@
+/*
+ *  @(#)AppView.java       3.00    2019/04/10
+ *
+ *  Copyright   (c) 2019 Myungki Sa.
+ *  Computer Science Engineering, Java, Daejeon, Korea
+ *  All rights reserved.
+ *  conatuseus@gmail.com
+ */
+
 package com.conatuseus.lotto.appView;
 
 import com.conatuseus.lotto.appController.AppController;
@@ -38,6 +47,7 @@ public class AppView {
         return Integer.parseInt(scannedMoney);
     }
 
+    /* 입력 받은 구입금액 유효성 확인 메소드 */
     private static boolean isMoneyValid(String scannedMoney) {
         if (!scannedMoney.matches(NUMBER_REGEX)) {
             return false;                                   // 입력이 숫자가 아니면
@@ -52,6 +62,7 @@ public class AppView {
         }
     }
 
+    /* 지난 주 당첨 번호 입력 메소드*/
     public static List<Integer> inputWinningLotto() throws IOException {
         String[] scannedNumbers;
 
@@ -86,6 +97,7 @@ public class AppView {
         return set.size() == AppController.LOTTO_LENGTH;                                        // set의 크기가 6인지아닌지 반환.
     }
 
+    /* 1개의 당첨번호 1-45사이 값인지 확인 메소드 */
     public static boolean isWinningNumberValid(int scannedNumber) {
         return scannedNumber >= AppController.MIN_LOTTO_VALUE && scannedNumber <= AppController.MAX_LOTTO_VALUE;
     }
