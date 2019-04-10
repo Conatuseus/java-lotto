@@ -5,7 +5,7 @@ import com.conatuseus.lotto.appController.AppController;
 
 import java.util.*;
 
-public class MakeRandom {
+public class MakeLotto {
 
     public static List<Integer> makeRandomNumberList() {
         Set<Integer> set = new TreeSet<>();

@@ -41,7 +41,7 @@ public class User {
 
     public void makeLottoList() {
         for (int i = 0; i < this.getNumberOfLotto(); i++) {
-            this.getLottoList().add(new Lotto(MakeRandom.makeRandomNumberList()));
+            this.getLottoList().add(new Lotto(MakeLotto.makeRandomNumberList()));
         }
     }
 }
