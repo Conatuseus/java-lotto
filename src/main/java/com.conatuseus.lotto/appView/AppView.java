@@ -40,15 +40,15 @@ public class AppView {
 
     private static boolean isMoneyValid(String scannedMoney) {
         if (!scannedMoney.matches(NUMBER_REGEX)) {
-            return false;
+            return false;                                   // 입력이 숫자가 아니면
         }
         int tInputMoney = Integer.parseInt(scannedMoney);
-        return (tInputMoney % AppController.LOTTO_COST) == 0;
+        return (tInputMoney % AppController.LOTTO_COST) == 0;           // 금액이 1000원 단위인지 아닌지 반환
     }
 
     public static void printLottoList(List<Lotto> lottoList) {
         for (Lotto lotto : lottoList) {
-            System.out.println(lotto.toString());
+            AppView.outputLine(lotto.toString());
         }
     }
 
